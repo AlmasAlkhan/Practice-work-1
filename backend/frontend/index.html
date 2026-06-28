@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="screen">
+      <div class="auth-container">
+        <div class="auth-brand">
+          <div class="logo">✦ TaskFlow</div>
+          <p class="tagline">Organize your work. Achieve more.</p>
+        </div>
+
+        <div class="auth-card">
+          <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login">Sign In</button>
+            <button class="auth-tab" data-tab="register">Sign Up</button>
+          </div>
+
+          <form id="login-form" class="auth-form">
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" placeholder="you@example.com" required>
+              <span class="field-error" id="login-email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" placeholder="Your password" required>
+              <span class="field-error" id="login-password-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+          </form>
+
+          <form id="register-form" class="auth-form hidden">
+            <div class="form-group">
+              <label for="reg-name">Full Name</label>
+              <input type="text" id="reg-name" placeholder="John Doe" required>
+              <span class="field-error" id="reg-name-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="reg-email">Email</label>
+              <input type="email" id="reg-email" placeholder="you@example.com" required>
+              <span class="field-error" id="reg-email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="reg-phone">Phone (optional)</label>
+              <input type="tel" id="reg-phone" placeholder="+1 555 123 4567">
+              <span class="field-error" id="reg-phone-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="reg-password">Password</label>
+              <input type="password" id="reg-password" placeholder="Min 8 chars, upper, lower, number" required>
+              <span class="field-error" id="reg-password-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+          </form>
+
+          <div id="auth-message" class="message hidden"></div>
+        </div>
+
+        <button id="theme-toggle-auth" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" class="screen hidden">
+      <header class="header">
+        <div class="header-left">
+          <button id="sidebar-toggle" class="icon-btn mobile-only" aria-label="Menu">☰</button>
+          <div class="logo">✦ TaskFlow</div>
+        </div>
+        <div class="header-right">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <div class="user-menu">
+            <span id="user-greeting"></span>
+            <button id="logout-btn" class="btn btn-ghost btn-sm">Logout</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside id="sidebar" class="sidebar">
+          <nav class="sidebar-nav">
+            <button class="nav-item active" data-view="tasks">
+              <span class="nav-icon">📋</span> Tasks
+            </button>
+            <button class="nav-item" data-view="categories">
+              <span class="nav-icon">🏷️</span> Categories
+            </button>
+            <button class="nav-item" data-view="profile">
+              <span class="nav-icon">👤</span> Profile
+            </button>
+          </nav>
+        </aside>
+
+        <main class="main-content">
+          <!-- Tasks View -->
+          <section id="tasks-view" class="view">
+            <div class="view-header">
+              <div>
+                <h1>My Tasks</h1>
+                <p class="subtitle">Manage and track your tasks</p>
+              </div>
+              <button id="new-task-btn" class="btn btn-primary">+ New Task</button>
+            </div>
+
+            <div class="filters-bar">
+              <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search tasks...">
+              </div>
+              <select id="status-filter">
+                <option value="">All Statuses</option>
+                <option value="pending">Pending</option>
+                <option value="in_progress">In Progress</option>
+                <option value="completed">Completed</option>
+              </select>
+              <select id="priority-filter">
+                <option value="">All Priorities</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+              <button id="apply-filters" class="btn btn-secondary">Apply</button>
+              <button id="clear-filters" class="btn btn-ghost">Clear</button>
+            </div>
+            <div id="filter-hint" class="filter-hint hidden"></div>
+
+            <div id="tasks-list" class="tasks-grid"></div>
+            <div id="tasks-empty" class="empty-state hidden">
+              <p id="tasks-empty-text">No tasks found. Create your first task!</p>
+              <button id="clear-filters-empty" class="btn btn-secondary btn-sm hidden">Clear filters</button>
+            </div>
+
+            <div id="pagination" class="pagination hidden">
+              <button id="prev-page" class="btn btn-ghost btn-sm">← Previous</button>
+              <span id="page-info"></span>
+              <button id="next-page" class="btn btn-ghost btn-sm">Next →</button>
+            </div>
+          </section>
+
+          <!-- Categories View -->
+          <section id="categories-view" class="view hidden">
+            <div class="view-header">
+              <div>
+                <h1>Categories</h1>
+                <p class="subtitle">Organize tasks by category</p>
+              </div>
+              <button id="new-category-btn" class="btn btn-primary">+ New Category</button>
+            </div>
+            <div id="categories-list" class="categories-grid"></div>
+            <div id="categories-empty" class="empty-state hidden">
+              <p>No categories yet. Create one to organize your tasks.</p>
+            </div>
+          </section>
+
+          <!-- Profile View -->
+          <section id="profile-view" class="view hidden">
+            <div class="view-header">
+              <div>
+                <h1>Profile</h1>
+                <p class="subtitle">Your account information</p>
+              </div>
+            </div>
+            <div class="profile-card">
+              <div class="profile-avatar" id="profile-avatar"></div>
+              <div class="profile-info">
+                <h2 id="profile-name"></h2>
+                <p id="profile-email" class="text-muted"></p>
+                <p id="profile-phone" class="text-muted"></p>
+                <p id="profile-joined" class="text-muted"></p>
+              </div>
+              <div class="profile-stats">
+                <div class="stat-card">
+                  <span class="stat-value" id="stat-tasks">0</span>
+                  <span class="stat-label">Tasks</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value" id="stat-categories">0</span>
+                  <span class="stat-label">Categories</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="task-modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="task-modal-title">New Task</h2>
+          <button class="modal-close" data-close="task-modal">✕</button>
+        </div>
+        <form id="task-form">
+          <input type="hidden" id="task-id">
+          <div class="form-group">
+            <label for="task-title">Title *</label>
+            <input type="text" id="task-title" required>
+            <span class="field-error" id="task-title-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="task-description">Description</label>
+            <textarea id="task-description" rows="3"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-status">Status</label>
+              <select id="task-status">
+                <option value="pending">Pending</option>
+                <option value="in_progress">In Progress</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-category">Category</label>
+              <select id="task-category">
+                <option value="">No category</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-due">Due Date</label>
+              <input type="date" id="task-due">
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn btn-ghost" data-close="task-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div id="category-modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="category-modal-title">New Category</h2>
+          <button class="modal-close" data-close="category-modal">✕</button>
+        </div>
+        <form id="category-form">
+          <input type="hidden" id="category-id">
+          <div class="form-group">
+            <label for="category-name">Name *</label>
+            <input type="text" id="category-name" required>
+            <span class="field-error" id="category-name-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="category-description">Description</label>
+            <textarea id="category-description" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="category-color">Color</label>
+            <input type="color" id="category-color" value="#6366f1">
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn btn-ghost" data-close="category-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Category</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
