@@ -78,6 +78,12 @@ const App = {
     document.getElementById('dashboard-screen').classList.remove('hidden');
     const name = Auth.currentUser?.name?.split(' ')[0] || 'User';
     document.getElementById('user-greeting').textContent = `Hello, ${name}`;
+    document.getElementById('hero-welcome').textContent = `Welcome back, ${name}!`;
+  },
+
+  updateHeroStats(tasks, categories) {
+    document.getElementById('hero-tasks').textContent = tasks ?? '0';
+    document.getElementById('hero-categories').textContent = categories ?? '0';
   },
 
   switchView(view) {
@@ -173,6 +179,7 @@ const App = {
       document.getElementById('profile-avatar').textContent = user.name.charAt(0).toUpperCase();
       document.getElementById('stat-tasks').textContent = stats.tasks;
       document.getElementById('stat-categories').textContent = stats.categories;
+      this.updateHeroStats(stats.tasks, stats.categories);
     } catch (err) {
       this.showToast(err.message, 'error');
     }

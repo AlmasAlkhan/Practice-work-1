@@ -6,16 +6,25 @@
   <title>TaskFlow — Task Manager</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div id="app">
     <!-- Auth Screen -->
     <div id="auth-screen" class="screen">
+      <div class="site-topbar">
+        <span class="topbar-pill">✦ Industry Practice 2026</span>
+        <span class="topbar-text">Full-Stack Task Manager — Alkhan Almas</span>
+      </div>
       <div class="auth-container">
+        <div class="auth-hero">
+          <div class="auth-hero-glow"></div>
+          <p class="auth-hero-label">Productivity Platform</p>
+          <h2 class="auth-hero-title">Plan. Track. Complete.</h2>
+        </div>
         <div class="auth-brand">
-          <div class="logo">✦ TaskFlow</div>
+          <div class="logo"><span class="logo-icon">◆</span> TaskFlow</div>
           <p class="tagline">Organize your work. Achieve more.</p>
         </div>
 
@@ -75,7 +84,7 @@
       <header class="header">
         <div class="header-left">
           <button id="sidebar-toggle" class="icon-btn mobile-only" aria-label="Menu">☰</button>
-          <div class="logo">✦ TaskFlow</div>
+          <div class="logo"><span class="logo-icon">◆</span> TaskFlow</div>
         </div>
         <div class="header-right">
           <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
@@ -85,6 +94,28 @@
           </div>
         </div>
       </header>
+
+      <div class="dashboard-hero" id="dashboard-hero">
+        <div class="hero-left">
+          <span class="hero-badge">Dashboard</span>
+          <h2 id="hero-welcome">Welcome back!</h2>
+          <p class="hero-sub">Manage tasks, categories, and progress in one place.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value" id="hero-tasks">0</span>
+            <span class="hero-stat-label">Tasks</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value" id="hero-categories">0</span>
+            <span class="hero-stat-label">Categories</span>
+          </div>
+          <div class="hero-stat hero-stat-accent">
+            <span class="hero-stat-value">Live</span>
+            <span class="hero-stat-label">Deployed</span>
+          </div>
+        </div>
+      </div>
 
       <div class="layout">
         <aside id="sidebar" class="sidebar">
@@ -271,7 +302,7 @@
           </div>
           <div class="form-group">
             <label for="category-color">Color</label>
-            <input type="color" id="category-color" value="#6366f1">
+            <input type="color" id="category-color" value="#7c3aed">
           </div>
           <div class="modal-actions">
             <button type="button" class="btn btn-ghost" data-close="category-modal">Cancel</button>

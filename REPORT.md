@@ -1,11 +1,22 @@
-# TaskFlow — Industry Practice Project Report
+**TaskFlow — Industry Practice Project Report**
 
-**Student Name:** Alkhan Almas  
-**Student Project:** Full-Stack Task Manager Application  
-**Date:** June 28, 2026  
-**Local URL:** http://localhost:3000  
-**Deployment URL:** https://taskflow-alkhan.onrender.com  
-**GitHub Repository:** https://github.com/AlmasAlkhan/Practice-work
+<div align="center">
+
+**INDUSTRY PRACTICE PROJECT · MILITARY PRACTICE STUDENTS · 2026**
+
+---
+
+| | |
+|---|---|
+| **Student** | Alkhan Almas |
+| **Project** | Full-Stack Task Manager Application |
+| **Date** | June 28, 2026 |
+| **Design Theme** | Violet / Purple UI with gradient hero banners |
+| **Local URL** | http://localhost:3000 |
+| **Deployment** | https://taskflow-alkhan.onrender.com |
+| **GitHub** | https://github.com/AlmasAlkhan/Practice-work-1 |
+
+</div>
 
 ---
 
@@ -183,7 +194,7 @@ The application uses **three related MongoDB collections** connected through ref
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `name` | String | Yes | Category name |
-| `color` | String | Yes | Hex color code (e.g. `#6366f1`) |
+| `color` | String | Yes | Hex color code (e.g. `#7c3aed`) |
 | `description` | String | No | Category description |
 | `user` | ObjectId | Yes | Reference to User |
 | `createdAt` | Date | Auto | Creation timestamp |
@@ -560,8 +571,12 @@ The application is fully responsive and tested on:
 
 ### 8.2 Design Quality
 
-- Professional Inter font typography
-- Consistent color system with CSS custom properties
+- **Violet / purple color palette** with gradient accents (`#7c3aed`, `#9333ea`, `#c026d3`)
+- Plus Jakarta Sans typography for a modern, professional look
+- Top announcement bar on the login screen (Industry Practice 2026)
+- Dashboard hero banner with live stats (tasks, categories, deployment status)
+- Consistent color system with CSS custom properties and dark mode support
+- Gradient buttons, violet-bordered task cards, and accent sidebar navigation
 - Sufficient color contrast in both light and dark modes
 - Status and priority badges with semantic colors
 - No placeholder buttons — all UI elements are functional
@@ -642,7 +657,7 @@ https://taskflow-alkhan.onrender.com
 **GitHub Repository:**
 
 ```
-https://github.com/AlmasAlkhan/Practice-work
+https://github.com/AlmasAlkhan/Practice-work-1
 ```
 
 Author: **Alkhan Almas**
@@ -667,7 +682,7 @@ Author: **Alkhan Almas**
 
 ## Conclusion
 
-TaskFlow is a complete full-stack CRUD application developed by **Alkhan Almas** that meets all technical requirements of the Industry Practice Project. The application is deployed at **https://taskflow-alkhan.onrender.com** and the source code is available at **https://github.com/AlmasAlkhan/Practice-work**.
+TaskFlow is a complete full-stack CRUD application developed by **Alkhan Almas** that meets all technical requirements of the Industry Practice Project. The application is deployed at **https://taskflow-alkhan.onrender.com** and the source code is available at **https://github.com/AlmasAlkhan/Practice-work-1**.
 
 ---
 
