@@ -56,20 +56,28 @@ const OUT = path.join(__dirname, '../screenshots');
   await page.click('#new-category-btn');
   await page.fill('#category-name', 'University');
   await page.fill('#category-description', 'Academic tasks and assignments');
-  await page.fill('#category-color', '#6366f1');
+  await page.fill('#category-color', '#7c3aed');
   await page.click('#category-form button[type="submit"]');
   await page.waitForTimeout(500);
   await page.screenshot({ path: path.join(OUT, '06-categories.png'), fullPage: true });
 
+  await page.click('.nav-item[data-view="tasks"]');
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: path.join(OUT, '10-tasks-live.png'), fullPage: true });
+
   await page.click('.nav-item[data-view="profile"]');
   await page.waitForTimeout(500);
   await page.screenshot({ path: path.join(OUT, '07-profile.png'), fullPage: true });
+  await page.screenshot({ path: path.join(OUT, '11-profile-live.png'), fullPage: true });
 
   await page.click('#theme-toggle');
   await page.waitForTimeout(400);
   await page.screenshot({ path: path.join(OUT, '08-dark-mode.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.click('#sidebar-toggle');
+  await page.waitForTimeout(300);
   await page.click('.nav-item[data-view="tasks"]');
   await page.waitForTimeout(500);
   await page.screenshot({ path: path.join(OUT, '09-mobile-view.png'), fullPage: true });

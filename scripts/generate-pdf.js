@@ -108,14 +108,14 @@ const CSS = `
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>TaskFlow — Industry Practice Project Report</title>
+<title>Planora — Industry Practice Project Report</title>
 <style>${CSS}</style>
 </head>
 <body>
 <div class="doc-topbar">Industry Practice Project · Military Practice Students · 2026</div>
 <div class="cover">
   <div class="cover-band">Full-Stack Task Manager Application</div>
-  <h1>TaskFlow</h1>
+  <h1>Planora</h1>
   <p class="subtitle"><strong>Industry Practice Project Report</strong></p>
   <p class="subtitle">Violet UI Theme · Node.js · MongoDB · JWT</p>
   <div class="meta-grid">

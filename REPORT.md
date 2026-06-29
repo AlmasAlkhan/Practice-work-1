@@ -1,4 +1,4 @@
-**TaskFlow — Industry Practice Project Report**
+**Planora — Industry Practice Project Report**
 
 <div align="center">
 
@@ -39,11 +39,11 @@
 
 ### 1.1 Description
 
-**TaskFlow** is a full-stack web application for managing personal and professional tasks. Users can register, log in, create color-coded categories, and manage tasks with status, priority, and due dates. The application supports search, filtering, and pagination for efficient task browsing.
+**Planora** is a full-stack web application for managing personal and professional tasks. Users can register, log in, create color-coded categories, and manage tasks with status, priority, and due dates. The application supports search, filtering, and pagination for efficient task browsing.
 
 ### 1.2 Problem Statement
 
-People often lose track of tasks across different areas of life — work, study, and personal goals. TaskFlow solves this by providing a single, secure, responsive platform where users can organize tasks into categories, track progress, and quickly find what they need using search and filters.
+People often lose track of tasks across different areas of life — work, study, and personal goals. Planora solves this by providing a single, secure, responsive platform where users can organize tasks into categories, track progress, and quickly find what they need using search and filters.
 
 ### 1.3 Tech Stack
 
@@ -430,49 +430,49 @@ Delete a task. Returns confirmation message.
 
 ### 5.1 Sign In Page
 
-Authentication form with email and password validation.
+Violet-themed authentication screen with top announcement bar and hero banner.
 
 <img src="screenshots/01-sign-in.png" alt="Sign In Page" width="700" />
 
 ### 5.2 Sign Up Page
 
-Registration form with name, email, phone, and password complexity validation.
+Registration form with violet accent styling and client-side validation.
 
 <img src="screenshots/02-sign-up.png" alt="Sign Up Page" width="700" />
 
 ### 5.3 Tasks Dashboard
 
-Main dashboard after login with sidebar navigation and task management interface.
+Dashboard with gradient hero banner, sidebar navigation, and task management.
 
 <img src="screenshots/03-tasks-dashboard.png" alt="Tasks Dashboard" width="700" />
 
 ### 5.4 Tasks with Data
 
-Task cards displaying title, description, status badges, priority, and due date.
+Violet-accented task cards with status badges, priority, and due date.
 
 <img src="screenshots/04-tasks-with-data.png" alt="Tasks with Data" width="700" />
 
 ### 5.5 Search and Filtering
 
-Search by keyword combined with status and priority filters. Clear button resets filters.
+Search by keyword combined with status and priority filters.
 
 <img src="screenshots/05-search-and-filter.png" alt="Search and Filter" width="700" />
 
 ### 5.6 Categories Page
 
-Color-coded category cards for organizing tasks.
+Color-coded category cards with violet default accent.
 
 <img src="screenshots/06-categories.png" alt="Categories" width="700" />
 
 ### 5.7 Profile Page
 
-User account information with task and category statistics.
+Profile card with gradient avatar and task/category statistics.
 
 <img src="screenshots/07-profile.png" alt="Profile" width="700" />
 
 ### 5.8 Dark Mode
 
-Light and dark theme toggle with preference saved in localStorage.
+Dark violet theme toggle with preference saved in localStorage.
 
 <img src="screenshots/08-dark-mode.png" alt="Dark Mode" width="700" />
 
@@ -484,13 +484,13 @@ Fully functional layout on mobile devices (390px viewport).
 
 ### 5.10 Tasks Page — Live Session
 
-Real application screenshot from user session (Almas).
+Live dashboard with hero stats banner and populated task list.
 
 <img src="screenshots/10-tasks-live.png" alt="Tasks Live" width="700" />
 
 ### 5.11 Profile Page — Live Session
 
-Profile dashboard showing user account and statistics.
+Profile dashboard with user account info and statistics.
 
 <img src="screenshots/11-profile-live.png" alt="Profile Live" width="700" />
 
@@ -600,9 +600,9 @@ The application is fully responsive and tested on:
 
 | Key | Stored Data |
 |-----|-------------|
-| `taskflow_token` | JWT authentication token |
-| `taskflow_theme` | `light` or `dark` theme preference |
-| `taskflow_filters` | Last search query, status, priority, page |
+| `planora_token` | JWT authentication token |
+| `planora_theme` | `light` or `dark` theme preference |
+| `planora_filters` | Last search query, status, priority, page |
 
 ---
 
@@ -682,7 +682,7 @@ Author: **Alkhan Almas**
 
 ## Conclusion
 
-TaskFlow is a complete full-stack CRUD application developed by **Alkhan Almas** that meets all technical requirements of the Industry Practice Project. The application is deployed at **https://taskflow-alkhan.onrender.com** and the source code is available at **https://github.com/AlmasAlkhan/Practice-work-1**.
+Planora is a complete full-stack CRUD application developed by **Alkhan Almas** that meets all technical requirements of the Industry Practice Project. The application is deployed at **https://taskflow-alkhan.onrender.com** and the source code is available at **https://github.com/AlmasAlkhan/Practice-work-1**.
 
 ---
 

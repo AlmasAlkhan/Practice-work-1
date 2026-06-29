@@ -1,8 +1,8 @@
 const Storage = {
   KEYS: {
-    TOKEN: 'taskflow_token',
-    THEME: 'taskflow_theme',
-    FILTERS: 'taskflow_filters',
+    TOKEN: 'planora_token',
+    THEME: 'planora_theme',
+    FILTERS: 'planora_filters',
   },
 
   get(key) {

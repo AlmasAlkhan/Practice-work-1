@@ -55,7 +55,7 @@ const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TaskFlow — Industry Practice Project Report</title>
+  <title>Planora — Industry Practice Project Report</title>
   <style>
     body { font-family: Inter, -apple-system, sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem; color: #0f172a; line-height: 1.6; }
     h1 { color: #6366f1; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
@@ -70,7 +70,7 @@ const html = `<!DOCTYPE html>
   </style>
 </head>
 <body>
-  <h1>TaskFlow — Industry Practice Project Report</h1>
+  <h1>Planora — Industry Practice Project Report</h1>
   <p><strong>With embedded screenshots</strong> — open this file in a browser and use Print → Save as PDF.</p>
   <hr />
   <h2>5. Key Features Screenshots</h2>
